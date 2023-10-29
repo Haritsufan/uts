@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_uts/keDua.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() => runApp(MyApp());
@@ -9,32 +10,52 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.red,
-          onPressed: () {},
-          child: const Icon(
-            Icons.qr_code,
-            color: Colors.white,
-            size: 48,
-          ),
+      home: Pertama(),
+    );
+  }
+}
+
+class Pertama extends StatelessWidget {
+  const Pertama({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.red,
+        onPressed: () {},
+        child: const Icon(
+          Icons.qr_code,
+          color: Colors.white,
+          size: 48,
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.black,
-          selectedItemColor: Colors.red,
-          showUnselectedLabels: true,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.house), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
-            BottomNavigationBarItem(icon: Icon(Icons.donut_small), label: 'Payment'),
-            BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_box), label: 'Account'),
-          ],
-        ),
-        backgroundColor: Colors.grey[200],
-        body: Column(
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.red,
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.house), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.history), label: 'History'),
+          BottomNavigationBarItem(icon: Icon(Icons.donut_small), label: 'Payment'),
+          BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_box), label: 'Account'),
+        ],
+        onTap: (value) {
+          if (value == 1)
+          
+          Navigator.of(context).push( MaterialPageRoute(builder: (context2){
+            return KeDua();
+          }));
+        },
+      ),
+      backgroundColor: Colors.grey[200],
+      body: SingleChildScrollView(
+        child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -75,7 +96,7 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-// untuk background box decor saya menggunakan gambar
+      // untuk background box decor saya menggunakan gambar
             Container(
               padding: EdgeInsets.all(32.0),
               //margin: EdgeInsets.all(50),
